@@ -1,0 +1,168 @@
+.App {
+	text-align: center;
+}
+
+.App-logo {
+	height: 40vmin;
+	pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.App-logo {
+		animation: App-logo-spin infinite 20s linear;
+	}
+}
+
+.App-header {
+	background-color: #282c34;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+	color: white;
+}
+
+.App-link {
+	color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+
+/* Animations */
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes expandTopToBottom {
+	0% {
+		opacity: 0;
+		height: 0%;
+		transform: scaleX(1) scaleY(0);
+	}
+	100% {
+		opacity: 1;
+		height: 100%;
+		transform: scaleX(1) scaleY(1);
+	}
+}
+
+@keyframes transformWidth {
+	0% {
+		opacity: 0;
+		height: 0%;
+		transform: scaleX(0) scaleY(1);
+	}
+	100% {
+		opacity: 1;
+		height: 100%;
+		transform: scaleX(1) scaleY(1);
+	}
+}
+
+.fade-in {
+	animation: fadeIn 500ms;
+}
+
+.fade-out {
+	animation: fadeOut 500ms;
+}
+
+.expand-top-to-bottom {
+	animation: expandTopToBottom 300ms;
+	overflow: hidden;
+	transition: height ease-in-out 300ms;
+	transform-origin: top;
+}
+
+.appear-from-right {
+	animation: transformWidth 500ms;
+	overflow: hidden;
+	transition: all ease-in-out 500ms;
+	transform-origin: right;
+}
+
+.appear-from-left {
+	animation: transformWidth 300ms;
+	overflow: hidden;
+	transition: all ease-in-out 300ms;
+	transform-origin: left;
+}
+
+.smooth {
+	transition: all ease-in-out 1s;
+}
+
+.tooltip::before,
+
+.tooltip::after {
+    --scale: 0;
+    --arrow-size: 5px;
+    --tooltip-color: #222222;
+    /* --translate-y: -100%; */
+
+    position: absolute;
+    top: -0.125rem;
+    left: 50%;
+    animation: fadeIn 700ms;
+    transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+    transition: 200ms  transform;
+    transform-origin: bottom center;
+}
+
+.tooltip::before {
+    --scale: 0;
+    --translate-y: calc(-100% - var(--arrow-size));
+
+    content: attr(data-tooltip);
+    width: max-content;
+    height: fit-content;
+    max-width: 50vw;
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    color: white;
+    text-align: center;
+    font-size: 0.7rem;
+    background-color: var(--tooltip-color);
+    /* box-shadow: -2px -2px 3px 3px #b1b1b1; */
+    box-shadow: 0 3px 3px -2px #00000033, 0 3px 3px 0 #00000024, 0 3px 3px 0 #0000001f, 0 -2px 3px 3px #0000001f;
+}
+
+.tooltip:hover::before, .tooltip:hover::after {
+    --scale: 1;
+}
+
+.tooltip::after {
+    --translate-y: calc(-1 * var(--arrow-size));
+
+    content: "";
+    border: var(--arrow-size) solid transparent;
+    border-top-color: var(--tooltip-color);
+    transform-origin: top center;
+}
+
+/** Tooltip */

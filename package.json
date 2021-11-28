@@ -1,0 +1,56 @@
+{
+	"name": "meus-ventus",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"@fortawesome/fontawesome-free": "^5.15.4",
+		"@testing-library/jest-dom": "^5.15.1",
+		"@testing-library/react": "^11.2.7",
+		"@testing-library/user-event": "^12.8.3",
+		"animate.css": "^4.1.1",
+		"axios": "^0.24.0",
+		"bootstrap-icons": "^1.7.1",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"react-redux": "^7.2.6",
+		"react-router-dom": "^6.0.2",
+		"react-scripts": "4.0.3",
+		"redux": "^4.1.2",
+		"redux-thunk": "^2.4.1",
+		"web-vitals": "^1.1.2"
+	},
+	"scripts": {
+		"start": "npm run watch:css && react-scripts start",
+		"build": "npm run build:css && react-scripts build",
+		"watch:css": "postcss src/assets/css/tailwind.css -o src/assets/css/main.css",
+		"build:css": "postcss src/assets/css/tailwind.css -o src/assets/css/main.css",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"@fullhuman/postcss-purgecss": "^4.0.3",
+		"autoprefixer": "^10.4.0",
+		"postcss": "^8.4.3",
+		"postcss-cli": "^9.0.2",
+		"postcss-import": "^14.0.2",
+		"tailwindcss": "^2.2.19"
+	}
+}
